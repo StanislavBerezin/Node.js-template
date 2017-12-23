@@ -19,7 +19,7 @@ require('passport-jwt')
 
 
 
-console.log('hello')
+
 
 
 
