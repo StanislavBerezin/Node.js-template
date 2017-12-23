@@ -13,6 +13,10 @@ function jwtOneWeek(user) {
     })
 }
 
+
+
+
+
 module.exports = {
     //typical controller
     //can be async if await inside
@@ -20,6 +24,30 @@ module.exports = {
         res.send({
             message: 'Controller'
         })
-    }
+    },
 
+
+    
+
+    //this can be used to authenticate based on tokens
+    //combined with another jwt token
+    //x2 security
+    authenticate(req, res, next) {
+        var token = req.header('x-auth');
+
+        User.findByToken(token).then((user) => {
+            if (!user) {
+                return Promise.reject();
+            }
+
+            req.user = user;
+            req.token = token;
+
+            next();
+        }).catch((e) => {
+            res.status(401).send()
+        })
+
+
+    }
 }

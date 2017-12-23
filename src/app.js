@@ -4,6 +4,8 @@ const cors = require('cors')
 const morgan = require('morgan')
 const helmet = require('helmet')
 const config = require('./config/config')
+const {mongoose} = require('./db_connect')
+
 
 
 
@@ -22,6 +24,6 @@ require('passport-jwt')
 
 
 
-
-
-app.listen(config.port)
+app.listen(config.port,()=>{
+    console.log('we are now running')
+})
