@@ -1,2 +1,1 @@
-# Node.js-template
-tEMPLATE TO USE
+# Node.js-templatetE
