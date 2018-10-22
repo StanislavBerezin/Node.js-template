@@ -11,7 +11,7 @@ const {mongoose} = require('./db_connect')
 
 const app = express()
 app.use(morgan('combine'))
-app.use(bodyParser.json)
+app.use(bodyParser.json())
 app.use(helmet())
 app.use(cors())
 
